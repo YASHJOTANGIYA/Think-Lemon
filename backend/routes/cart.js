@@ -48,8 +48,26 @@ router.post('/add', protect, async (req, res) => {
         };
 
         if (!cart) {
-            cart = await Cart.create({ user: req.user._id, items: [{ product: productId, quantity, customization, uploadedFiles }] });
+            console.log('Creating new cart for user:', req.user._id);
+            const sanitizedCustomization = {};
+            if (customization) {
+                Object.entries(customization).forEach(([k, v]) => {
+                    if (v !== null && v !== undefined) sanitizedCustomization[k] = String(v);
+                });
+            }
+            const files = Array.isArray(uploadedFiles) ? uploadedFiles : [];
+
+            cart = await Cart.create({
+                user: req.user._id,
+                items: [{
+                    product: productId,
+                    quantity,
+                    customization: sanitizedCustomization,
+                    uploadedFiles: files
+                }]
+            });
         } else {
+            console.log('Updating existing cart');
             // Find item with same product ID AND same customization
             const itemIndex = cart.items.findIndex(item => {
                 if (item.product.toString() !== productId) return false;
@@ -57,10 +75,27 @@ router.post('/add', protect, async (req, res) => {
             });
 
             if (itemIndex > -1) {
+                console.log('Item found, updating quantity');
                 cart.items[itemIndex].quantity += quantity;
-                if (uploadedFiles) cart.items[itemIndex].uploadedFiles = uploadedFiles;
+                if (uploadedFiles && Array.isArray(uploadedFiles)) {
+                    cart.items[itemIndex].uploadedFiles = uploadedFiles;
+                }
             } else {
-                cart.items.push({ product: productId, quantity, customization, uploadedFiles });
+                console.log('Item not found, pushing new item');
+                const sanitizedCustomization = {};
+                if (customization) {
+                    Object.entries(customization).forEach(([k, v]) => {
+                        if (v !== null && v !== undefined) sanitizedCustomization[k] = String(v);
+                    });
+                }
+                const files = Array.isArray(uploadedFiles) ? uploadedFiles : [];
+
+                cart.items.push({
+                    product: productId,
+                    quantity,
+                    customization: sanitizedCustomization,
+                    uploadedFiles: files
+                });
             }
             await cart.save();
         }
