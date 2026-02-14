@@ -7,7 +7,8 @@ const fs = require('fs');
 // Configure storage
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const uploadDir = 'uploads/';
+        // Use /tmp for Vercel/Production, otherwise uploads/
+        const uploadDir = process.env.NODE_ENV === 'production' ? '/tmp' : 'uploads/';
         // Create directory if it doesn't exist
         if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir, { recursive: true });
