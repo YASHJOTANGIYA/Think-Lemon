@@ -1,0 +1,495 @@
+.orders-container {
+    padding: 4rem 0;
+    min-height: 60vh;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.order-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.order-header {
+    background: #F8F9FA;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.order-meta {
+    display: flex;
+    gap: 3rem;
+}
+
+.meta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.meta-label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.meta-value {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.order-content-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* or flex-start based on preference */
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
+.order-items {
+    padding: 0;
+    /* Remove padding as parent handles it */
+    flex: 1;
+    /* Take available text space */
+}
+
+.order-actions {
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+/* Adjust Balance Container for Side View */
+.order-actions .balance-due-container {
+    margin-top: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .order-content-body {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+
+    .order-actions {
+        width: 100%;
+        min-width: 0;
+        align-items: stretch;
+    }
+}
+
+.order-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.order-item:first-child {
+    padding-top: 0;
+}
+
+.item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--light);
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.25rem;
+    display: block;
+    text-decoration: none;
+}
+
+.item-qty {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.order-footer {
+    padding: 1rem 1.5rem;
+    background: #fff;
+    /* border-top: 1px solid #eee; */
+    /* Removed border for smoother look if desired, or keep it */
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.status-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.status-note-text {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin: 0;
+    max-width: 500px;
+    line-height: 1.4;
+}
+
+.order-status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    align-self: flex-start;
+}
+
+.status-pending {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.status-processing {
+    background: #DBEAFE;
+    color: #2563EB;
+}
+
+.status-printing {
+    background: #E0F2FE;
+    color: #0284C7;
+}
+
+.status-ready {
+    background: #F3E8FF;
+    color: #7E22CE;
+}
+
+.status-shipped {
+    background: #E0E7FF;
+    color: #4F46E5;
+}
+
+.status-delivered {
+    background: #D1FAE5;
+    color: #059669;
+}
+
+.status-cancelled {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+@media (max-width: 768px) {
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .order-meta {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+}
+
+/* Timeline embedded in card (Horizontal) */
+.order-card-timeline {
+    border-top: 1px dashed #eee;
+    padding: 2.5rem 1rem 1.5rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.order-card-timeline .timeline-item {
+    flex: 1;
+    position: relative;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start;
+    gap: 0 !important;
+    /* Managed by padding/margin */
+    z-index: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Line connecting to the NEXT item */
+.order-card-timeline .timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background: #e5e7eb;
+    z-index: 0;
+    /* Behind dot and content */
+}
+
+/* Hide line for the last item */
+.order-card-timeline .timeline-item:last-child::after {
+    display: none;
+}
+
+.order-card-timeline .timeline-dot {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    border: 4px solid #d1d5db;
+    z-index: 2;
+    /* Above line */
+    box-shadow: 0 0 0 4px #fff;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    position: relative;
+    /* Take up space */
+}
+
+.order-card-timeline .timeline-item.completed .timeline-dot,
+.order-card-timeline .timeline-item.current .timeline-dot {
+    border-color: #10B981;
+    background: #10B981;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+/* Line Color Logic */
+.order-card-timeline .timeline-item.completed::after {
+    background: #10B981;
+}
+
+.order-card-timeline .timeline-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 0.5rem 0;
+    /* Top padding to push down from dot */
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    /* Above line */
+    background: #fff;
+    /* Opaque background to hide line overlap if any */
+}
+
+.order-card-timeline .timeline-content h4 {
+    margin: 0 0 4px;
+    color: #1f2937;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.order-card-timeline .timeline-content p {
+    margin: 0 0 4px;
+    color: #6b7280;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.order-card-timeline .timeline-date {
+    display: block;
+    color: #9ca3af;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Payment Success Modal */
+.payment-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+}
+
+.payment-modal {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.modal-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+}
+
+.payment-modal h2 {
+    color: #1F2937;
+    margin-bottom: 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+
+.payment-modal p {
+    color: #4B5563;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.btn-finish {
+    background: #FF6B35;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 15px -3px rgba(255, 107, 53, 0.3);
+}
+
+.btn-finish:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 25px -5px rgba(255, 107, 53, 0.4);
+    background: #e05e2b;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8) translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Balance Due Styling */
+.balance-due-container {
+    background-color: #fff7ed;
+    border: 1px solid #fdba74;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.balance-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.balance-label {
+    font-size: 0.85rem;
+    color: #9a3412;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.balance-amount {
+    font-size: 1.25rem;
+    color: #c2410c;
+    font-weight: 700;
+}
+
+.btn-pay-balance {
+    background-color: #ea580c;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.2);
+}
+
+.btn-pay-balance:hover:not(:disabled) {
+    background-color: #c2410c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px -1px rgba(234, 88, 12, 0.3);
+}
+
+.btn-pay-balance:disabled {
+    background-color: #fdba74;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

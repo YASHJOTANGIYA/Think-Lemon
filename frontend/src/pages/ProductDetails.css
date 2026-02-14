@@ -1,0 +1,1640 @@
+.product-details-container {
+    padding: 0rem 0;
+}
+
+.product-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+/* Image Gallery */
+.product-gallery {
+    position: sticky;
+    top: 100px;
+}
+
+.main-image {
+    width: 100%;
+    height: 500px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-placeholder {
+    font-size: 5rem;
+    color: var(--gray-light);
+}
+
+.thumbnail-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    overflow: hidden;
+    transition: var(--transition-normal);
+}
+
+.thumbnail.active {
+    border-color: var(--primary-color);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Product Info */
+.product-info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.product-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.product-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.rating {
+    color: #FFB400;
+    font-weight: 700;
+}
+
+.stock-status {
+    color: #10B981;
+    font-weight: 600;
+}
+
+.stock-status.out-of-stock {
+    color: #EF4444;
+}
+
+.product-price-large {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.current-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.original-price {
+    font-size: 1.5rem;
+    color: var(--gray-light);
+    text-decoration: line-through;
+}
+
+.discount-badge {
+    background: #EF4444;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.product-description-full {
+    color: var(--gray);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* Customization Form */
+.customization-form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-top: 1rem;
+}
+
+.customization-form h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 2px dashed var(--gray-light);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.file-upload-label:hover {
+    border-color: var(--primary-color);
+    background: #FFF5F0;
+}
+
+.upload-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.qty-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-light);
+    background: var(--white);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.qty-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.qty-input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-full {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Specifications */
+.specifications-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.specifications-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.specifications-table td {
+    padding: 1rem 0;
+    color: var(--gray);
+}
+
+.specifications-table td:first-child {
+    font-weight: 600;
+    color: var(--dark);
+    width: 40%;
+}
+
+/* Pincode Checker */
+.pincode-checker {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.pincode-checker h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.pincode-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.pincode-input-group input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.pincode-input-group button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.pincode-input-group button:hover {
+    background-color: #555;
+}
+
+.pincode-input-group button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.delivery-message {
+    margin-top: 15px;
+    color: #27ae60;
+    font-size: 0.95rem;
+}
+
+/* Bulk Pricing Table */
+.bulk-pricing-container {
+    margin: 1.5rem 0;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.bulk-pricing-container h4 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    color: #2c3e50;
+}
+
+.bulk-pricing-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bulk-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.bulk-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    transition: background 0.2s;
+}
+
+.bulk-row.active {
+    background: #d4edda;
+    color: #155724;
+    font-weight: 600;
+    border: 1px solid #c3e6cb;
+}
+
+.bulk-row span:last-child {
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   Custom Envelope Layout Styles
+   ========================================= */
+
+.envelope-custom-layout .product-title-large {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.envelope-custom-layout .product-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.envelope-custom-layout .product-features-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.envelope-custom-layout .product-features-list li {
+    margin-bottom: 0.5rem;
+}
+
+.envelope-custom-layout .customization-panel {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.envelope-custom-layout .config-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.envelope-custom-layout .config-row label {
+    width: 120px;
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+.envelope-custom-layout .config-input-wrapper {
+    flex: 1;
+}
+
+.envelope-custom-layout .config-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+.envelope-custom-layout .price-section-large {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 0.25rem;
+}
+
+.envelope-custom-layout .total-price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #333;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.envelope-custom-layout .tax-text {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 400;
+}
+
+.envelope-custom-layout .unit-price {
+    font-size: 1rem;
+    color: #666;
+}
+
+.envelope-custom-layout .bulk-savings {
+    margin-top: 0.5rem;
+}
+
+.envelope-custom-layout .bulk-link {
+    color: #6200ea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.envelope-custom-layout .action-buttons-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.envelope-custom-layout .btn-purple-block {
+    background: #4b0082;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.envelope-custom-layout .btn-purple-block:hover {
+    background: #3a006b;
+}
+
+.envelope-custom-layout .btn-white-block {
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.envelope-custom-layout .btn-white-block:hover {
+    background: #f9f9f9;
+    border-color: #ccc;
+}
+
+.envelope-custom-layout .delivery-estimator {
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.envelope-custom-layout .delivery-estimator h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.envelope-custom-layout .pincode-row {
+    position: relative;
+    max-width: 200px;
+}
+
+.envelope-custom-layout .pincode-row input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.envelope-custom-layout .check-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: green;
+}
+
+/* =========================================
+   Custom Brochure Layout Styles
+   ========================================= */
+
+/* Inherit most styles from envelope layout by using same classes in JSX, 
+   but add specific overrides or new classes here */
+
+.brochure-custom-layout .product-title-large {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.brochure-custom-layout .product-subtitle {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.brochure-custom-layout .product-features-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.brochure-custom-layout .product-desc-small {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.brochure-custom-layout .same-day-delivery {
+    font-size: 0.9rem;
+    color: #e67e22;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.brochure-custom-layout .customization-panel {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.brochure-custom-layout .config-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.brochure-custom-layout .config-row label {
+    width: 140px;
+    /* Slightly wider for brochure labels */
+    font-weight: 600;
+    color: #333;
+}
+
+.brochure-custom-layout .config-input-wrapper {
+    flex: 1;
+}
+
+.brochure-custom-layout .config-select,
+.brochure-custom-layout .config-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+.brochure-custom-layout .qty-hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 0.25rem;
+}
+
+/* Design Guidelines Section */
+.design-guidelines-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.section-heading {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.guideline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.guideline-visual {
+    width: 200px;
+    height: 150px;
+    border: 1px dashed #ccc;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+}
+
+.visual-box {
+    border: 1px solid #999;
+    background: white;
+}
+
+.visual-box.dl-fold {
+    width: 100px;
+    height: 100px;
+    /* Approximate ratio */
+}
+
+.visual-box.a5-fold {
+    width: 120px;
+    height: 90px;
+}
+
+.visual-box.a4-fold {
+    width: 140px;
+    height: 100px;
+}
+
+.guideline-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.specs-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.specs-list li {
+    margin-bottom: 0.5rem;
+}
+
+.btn-download {
+    background: #4b0082;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-download:hover {
+    background: #3a006b;
+}
+
+.guidelines-notes {
+    background: #f0f4f8;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.guidelines-notes ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: #555;
+}
+
+.guidelines-notes li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 992px) {
+    .product-details-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .product-gallery {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-details-container {
+        padding: 2rem 0;
+    }
+
+    .product-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .current-price {
+        font-size: 2rem;
+    }
+
+    .main-image {
+        height: 350px;
+    }
+
+    /* Custom Layout Mobile Adjustments */
+    .envelope-custom-layout .config-row,
+    .brochure-custom-layout .config-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .envelope-custom-layout .config-row label,
+    .brochure-custom-layout .config-row label {
+        width: 100%;
+        margin-bottom: 0.2rem;
+    }
+
+    .envelope-custom-layout .product-title-large,
+    .brochure-custom-layout .product-title-large {
+        font-size: 1.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Standard Business Card Layout Styles */
+.business-card-standard-layout {
+    padding-top: 0;
+    background-color: #fff;
+}
+
+.business-card-standard-layout .product-title-large {
+    font-size: 2rem;
+    margin-bottom: -11px;
+    color: #333;
+    font-weight: 700;
+}
+
+.breadcrumbs {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumbs a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    color: #f37021;
+}
+
+.product-desc-text {
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: 0;
+    margin-bottom: -11px;
+    line-height: 1.6;
+}
+
+.product-specs-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-top: 0;
+    margin-bottom: -11px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.product-specs-list li {
+    margin-bottom: 0.5rem;
+}
+
+.ideal-for-section {
+    margin-top: 0;
+    margin-bottom: -11px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.same-day-delivery {
+    color: #27ae60;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.same-day-delivery::before {
+    content: '⚡';
+    margin-right: 0.5rem;
+}
+
+.premium-link {
+    display: inline-block;
+    color: #663399;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: -11px;
+    font-size: 0.95rem;
+}
+
+.premium-link:hover {
+    text-decoration: underline;
+}
+
+.disclaimer-text {
+    font-size: 0.8rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.config-row-styled {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.config-row-styled label {
+    width: 180px;
+    flex-shrink: 0;
+    font-weight: 500;
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.select-wrapper {
+    flex: 1;
+    width: auto;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    font-size: 0.95rem;
+    color: #333;
+    cursor: pointer;
+    height: 48px;
+}
+
+.select-wrapper select:focus {
+    border-color: #f37021;
+    outline: none;
+}
+
+/* Printing Location Chips */
+.printing-location-chips {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    min-height: 48px;
+    box-sizing: border-box;
+}
+
+.chip {
+    padding: 0.25rem 0.5rem 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.chip.selected {
+    background: #663399;
+    color: white;
+    border: 1px solid #663399;
+}
+
+.chip.unselected {
+    background: white;
+    color: #663399;
+    border: 1px solid #ddd;
+}
+
+.chip.unselected:hover {
+    background: #f3e5f5;
+    border-color: #663399;
+}
+
+.chip .close-icon {
+    display: block;
+}
+
+/* Price Calculator Box */
+.price-calculator-box {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: -11px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.price-row.total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ddd;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.tax-note {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Action Buttons */
+.action-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-upload-design,
+.btn-create-design {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-upload-design:hover,
+.btn-create-design:hover {
+    background: #f5f5f5;
+    border-color: #ccc;
+}
+
+/* =========================================
+   PREMIUM ADD TO CART BUTTON STYLES
+   ========================================= */
+
+.btn-add-to-cart-large {
+    position: relative;
+    width: 100%;
+    padding: 1.3rem 2rem;
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    letter-spacing: 0.3px;
+}
+
+.btn-add-to-cart-large::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-add-to-cart-large:hover::before {
+    left: 100%;
+}
+
+.btn-add-to-cart-large:hover {
+    background: linear-gradient(135deg, #F7931E 0%, #FF6B35 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.btn-add-to-cart-large:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+}
+
+.btn-add-to-cart-large:disabled {
+    background: linear-gradient(135deg, #ccc 0%, #999 100%);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-add-to-cart-large:disabled::before {
+    display: none;
+}
+
+/* Add cart icon animation */
+.btn-add-to-cart-large::after {
+    content: '🛒';
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.btn-add-to-cart-large:hover::after {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.pouch-custom-layout .quantity-section {
+    margin-bottom: 2rem;
+}
+
+.pouch-custom-layout .qty-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pouch-custom-layout .qty-pill {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    color: #555;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 100px;
+    text-align: center;
+}
+
+.pouch-custom-layout .qty-pill:hover {
+    border-color: #0d3b66;
+    color: #0d3b66;
+    background: #f0f7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 59, 102, 0.15);
+}
+
+.pouch-custom-layout .qty-pill.active {
+    background: linear-gradient(135deg, #0d3b66 0%, #1a5490 100%);
+    color: white;
+    border-color: #0d3b66;
+    box-shadow: 0 6px 16px rgba(13, 59, 102, 0.3);
+    transform: translateY(-2px);
+}
+
+.pouch-custom-layout .qty-pill.other {
+    background: #f8f9fa;
+    border-style: dashed;
+}
+
+/* Upload & Action Buttons */
+.pouch-custom-layout .upload-section {
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+}
+
+.pouch-custom-layout .btn-upload {
+    width: 100%;
+    padding: 1rem;
+    background: #fff;
+    border: 2px dashed #cbd5e0;
+    border-radius: 8px;
+    color: #4a5568;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pouch-custom-layout .btn-upload:hover {
+    border-color: #0d3b66;
+    color: #0d3b66;
+    background: #f0f7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 59, 102, 0.1);
+}
+
+.pouch-custom-layout .btn-upload.uploaded {
+    background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+    border-color: #38b2ac;
+    color: #2c7a7b;
+    border-style: solid;
+}
+
+.pouch-custom-layout .action-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* PREMIUM ADD TO CART BUTTON FOR POUCH LAYOUT */
+.pouch-custom-layout .btn-add-cart {
+    position: relative;
+    flex: 2;
+    padding: 1.3rem 2rem;
+    background: linear-gradient(135deg, #0d3b66 0%, #1a5490 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 6px 20px rgba(13, 59, 102, 0.3) !important;
+    overflow: hidden;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    letter-spacing: 0.3px !important;
+}
+
+.pouch-custom-layout .btn-add-cart::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.pouch-custom-layout .btn-add-cart:hover::before {
+    left: 100%;
+}
+
+.pouch-custom-layout .btn-add-cart:hover {
+    background: linear-gradient(135deg, #1a5490 0%, #0d3b66 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(13, 59, 102, 0.4);
+}
+
+.pouch-custom-layout .btn-add-cart:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(13, 59, 102, 0.3);
+}
+
+.pouch-custom-layout .btn-add-cart:disabled {
+    background: linear-gradient(135deg, #ccc 0%, #999 100%);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Animate the cart icon */
+.pouch-custom-layout .btn-add-cart .btn-icon {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pouch-custom-layout .btn-add-cart:hover .btn-icon {
+    transform: scale(1.15) rotate(5deg);
+    animation: cartBounce 0.6s ease-in-out;
+}
+
+@keyframes cartBounce {
+
+    0%,
+    100% {
+        transform: scale(1.15) rotate(5deg) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.15) rotate(5deg) translateY(-4px);
+    }
+}
+
+
+.pouch-custom-layout .btn-chat {
+    flex: 1;
+    padding: 1.2rem;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.pouch-custom-layout .btn-chat:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+/* Refined Same-day Delivery Styles (Restored) */
+.same-day-delivery-styled {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #27ae60;
+}
+
+.same-day-delivery-styled .icon {
+    font-size: 1.4rem;
+    color: #f39c12;
+    margin-top: -2px;
+}
+
+.same-day-delivery-styled .text strong {
+    font-weight: 700;
+    color: #27ae60;
+}
+
+/* =========================================
+   Pouch Custom Layout Styles (Premium Redesign - Restored)
+   ========================================= */
+
+.pouch-custom-layout {
+    font-family: 'Inter', sans-serif;
+}
+
+.pouch-custom-layout .product-title-large {
+    font-size: 2.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-upload-design:hover,
+.btn-create-design:hover {
+    background: #f5f5f5;
+    border-color: #ccc;
+}
+
+.btn-add-to-cart-large {
+    width: 100%;
+    padding: 1.2rem;
+    background: #f37021;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-add-to-cart-large:hover {
+    background: #d35400;
+}
+
+.btn-add-to-cart-large:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.pouch-custom-layout .quantity-section {
+    margin-bottom: 2.5rem;
+}
+
+.pouch-custom-layout .qty-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pouch-custom-layout .qty-pill {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    color: #555;
+    transition: all 0.2s;
+    min-width: 100px;
+    text-align: center;
+}
+
+.pouch-custom-layout .qty-pill:hover {
+    border-color: #0d3b66;
+    color: #0d3b66;
+    background: #f0f7ff;
+}
+
+.pouch-custom-layout .qty-pill.active {
+    background: #0d3b66;
+    color: white;
+    border-color: #0d3b66;
+    box-shadow: 0 4px 10px rgba(13, 59, 102, 0.2);
+}
+
+.pouch-custom-layout .qty-pill.other {
+    background: #f8f9fa;
+    border-style: dashed;
+}
+
+/* Upload & Action Buttons */
+.pouch-custom-layout .upload-section {
+    margin-bottom: 2rem;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.pouch-custom-layout .btn-upload {
+    width: 100%;
+    padding: 1rem;
+    background: #fff;
+    border: 2px dashed #cbd5e0;
+    border-radius: 8px;
+    color: #4a5568;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pouch-custom-layout .btn-upload:hover {
+    border-color: #0d3b66;
+    color: #0d3b66;
+    background: #f0f7ff;
+}
+
+.pouch-custom-layout .btn-upload.uploaded {
+    background: #e6fffa;
+    border-color: #38b2ac;
+    color: #2c7a7b;
+    border-style: solid;
+}
+
+.pouch-custom-layout .action-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+
+
+.pouch-custom-layout .btn-chat {
+    flex: 1;
+    padding: 1.2rem;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.pouch-custom-layout .btn-chat:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+/* Refined Same-day Delivery Styles (Restored) */
+.same-day-delivery-styled {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #27ae60;
+}
+
+.same-day-delivery-styled .icon {
+    font-size: 1.4rem;
+    color: #f39c12;
+    margin-top: -2px;
+}
+
+.same-day-delivery-styled .text strong {
+    font-weight: 700;
+    color: #27ae60;
+}
+
+/* =========================================
+   Pouch Custom Layout Styles (Premium Redesign - Restored)
+   ========================================= */
+
+.pouch-custom-layout {
+    font-family: 'Inter', sans-serif;
+}
+
+.pouch-custom-layout .product-title-large {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.pouch-custom-layout .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 2rem;
+    margin-bottom: -0.5rem;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.pouch-custom-layout .spec-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.pouch-custom-layout .spec-label {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+}
+
+.pouch-custom-layout .spec-value {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.pouch-custom-layout .moq-lead-row {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: -2rem;
+    padding-bottom: 2rem;
+}
+
+.pouch-custom-layout .moq-item,
+.pouch-custom-layout .lead-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pouch-custom-layout .icon-box {
+    width: 48px;
+    height: 48px;
+    background: #fff8e1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.pouch-custom-layout .info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.pouch-custom-layout .info-label {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.pouch-custom-layout .info-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Price Section */
+.pouch-custom-layout .price-section-large {
+    margin-bottom: 0rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.pouch-custom-layout .total-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    line-height: 1.2;
+}
+
+.pouch-custom-layout .tax-text {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.pouch-custom-layout .unit-price {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Selectors Styling */
+.pouch-custom-layout .selectors-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 0rem;
+}
+
+.pouch-custom-layout .selector-group {
+    flex: 1;
+}
+
+.pouch-custom-layout .selector-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.pouch-custom-layout .custom-select {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.pouch-custom-layout .custom-select:focus {
+    border-color: #0d3b66;
+    box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.1);
+    outline: none;
+}

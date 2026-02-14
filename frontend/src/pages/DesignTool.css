@@ -1,0 +1,329 @@
+.design-tool-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--bg-orange);
+    font-family: 'Inter', sans-serif;
+}
+
+.design-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    height: 60px;
+}
+
+.design-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.design-header h2::before {
+    content: 'P';
+    /* Placeholder for logo icon if needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #6c5ce7;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #666;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.btn-save {
+    background-color: #4a148c;
+    /* Deep Purple */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-save:hover {
+    background-color: #380e6d;
+}
+
+.design-workspace {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Sidebar on the Right */
+.design-sidebar {
+    width: 300px;
+    background-color: white;
+    border-left: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    order: 2;
+    /* Move to right */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.02);
+}
+
+.sidebar-section {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 1.5rem;
+}
+
+.sidebar-section:last-child {
+    border-bottom: none;
+}
+
+.sidebar-section h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* Grid for Tools */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 80px;
+}
+
+.tool-item:hover {
+    border-color: #6c5ce7;
+    background-color: #f8f7fc;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tool-item .icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.tool-item span {
+    font-size: 0.75rem;
+    color: #333;
+    text-align: center;
+}
+
+.full-width-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.full-width-btn:hover {
+    border-color: #6c5ce7;
+    color: #6c5ce7;
+}
+
+/* Canvas Area */
+.canvas-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    /* Dot pattern background */
+    background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+    background-size: 20px 20px;
+    padding: 2rem;
+    overflow: auto;
+    position: relative;
+    order: 1;
+    /* Canvas on left */
+}
+
+canvas {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Floating Zoom Controls */
+.zoom-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: white;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.zoom-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #555;
+    transition: all 0.2s;
+}
+
+.zoom-btn:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Properties Panel */
+.properties-panel {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.properties-panel h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.color-picker {
+    margin-top: 10px;
+}
+
+.color-options {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 1px #ddd;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 1px #6c5ce7;
+}
+
+/* Text Controls */
+.text-controls select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.text-style-btns {
+    display: flex;
+    gap: 5px;
+}
+
+.style-btn {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.style-btn.active {
+    background: #e0e7ff;
+    color: #4338ca;
+    border-color: #4338ca;
+}
+
+.layer-controls {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.layer-btn {
+    flex: 1;
+    padding: 6px;
+    font-size: 0.8rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff1f2;
+    color: #e11d48;
+    border: 1px solid #fecdd3;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: #ffe4e6;
+}

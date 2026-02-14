@@ -1,0 +1,201 @@
+/* Contact Page Styles - Minimalist & Clean */
+.contact-page-container {
+    padding: 6rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    background: transparent;
+}
+
+/* Header */
+.contact-header {
+    text-align: left;
+    /* Align left as per tera screenshot */
+    margin-bottom: 2.5rem;
+}
+
+.contact-header h1 {
+    font-size: 2.5rem;
+    /* Reduced from 3.5rem */
+    font-weight: 400;
+    /* Lighter weight for minimalist look */
+    color: #000;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-header p {
+    display: none;
+    /* Hide subtitle for cleaner look if not needed, or style minimally */
+}
+
+/* Wrapper */
+.contact-content-wrapper {
+    display: flex;
+    gap: 5rem;
+    /* Increased gap */
+    align-items: flex-start;
+}
+
+/* Image */
+.contact-image-container {
+    flex: 1;
+    height: 550px;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Removed shadow for flatter look */
+}
+
+.contact-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Form Wrapper */
+.contact-form-wrapper {
+    flex: 1.2;
+    background: transparent;
+    /* Remove white background */
+    padding: 0;
+    box-shadow: none;
+    /* Remove shadow */
+    border: none;
+    /* Remove border */
+}
+
+/* Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    /* Increased vertical spacing */
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    /* Increased horizontal gap */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+/* Labels */
+.form-group label {
+    font-size: 0.8rem;
+    color: #666;
+    /* Muted color */
+    font-weight: 500;
+    text-transform: none;
+    /* Normal case looks cleaner sometimes, but ref had Camel Case */
+    /* Ref image had 'First name', 'Last name' - normal casing */
+}
+
+/* Inputs - Strictly Line Style */
+.modern-input {
+    width: 100%;
+    padding: 0.8rem 0;
+    border: none !important;
+    /* Force override */
+    border-bottom: 1px solid #ccc !important;
+    /* Thinner line */
+    font-size: 1rem;
+    color: #333;
+    background: transparent !important;
+    /* Force transparent */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transition: border-color 0.3s;
+}
+
+.modern-input:focus {
+    outline: none;
+    border-bottom-color: #000 !important;
+}
+
+/* Textarea */
+.modern-textarea {
+    resize: none;
+    min-height: 100px;
+    padding-top: 1rem;
+}
+
+/* Phone Input */
+.phone-wrapper {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    padding-bottom: 5px;
+    /* Alignment fix */
+}
+
+.phone-wrapper:focus-within {
+    border-bottom-color: #000;
+}
+
+.phone-icon {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    color: #555;
+    /* Globe icon style */
+}
+
+/* Submit Button */
+.btn-submit-lemon {
+    align-self: flex-start;
+    background: #DFFF00;
+    /* Neon Yellow */
+    color: #000;
+    padding: 12px 40px;
+    border: 1px solid #000;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+    text-transform: capitalize;
+    /* 'Submit' not 'SUBMIT' */
+}
+
+.btn-submit-lemon:hover {
+    background: #cce600;
+    transform: none;
+    /* Removed float for simpler feel */
+    box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-content-wrapper {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .contact-image-container {
+        width: 100%;
+        height: 300px;
+    }
+
+    .form-row {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-page-container {
+        padding: 4rem 1.5rem;
+    }
+}

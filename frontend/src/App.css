@@ -1,0 +1,220 @@
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* =========================================
+   Design Question & Upload Section Styling
+   ========================================= */
+
+.design-question-section {
+    margin-bottom: -3rem;
+    background: #fff;
+    border-radius: 16px;
+    padding: 0.5rem 0;
+}
+
+.design-question-label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.2rem;
+}
+
+.design-options-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.design-option-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.2rem;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.design-option-btn:hover {
+    border-color: #0d3b66;
+    background: #f8faff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 59, 102, 0.08);
+}
+
+.design-option-btn.active {
+    border-color: #0d3b66;
+    background: #0d3b66;
+    color: white;
+    box-shadow: 0 6px 16px rgba(13, 59, 102, 0.2);
+}
+
+.design-option-btn .option-icon {
+    font-size: 1.4rem;
+}
+
+.design-option-btn .option-text {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Upload Grid */
+.upload-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.upload-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f8f9fa;
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1px dashed #cbd5e0;
+    transition: all 0.2s;
+}
+
+.upload-row:hover {
+    border-color: #0d3b66;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.btn-remove-file {
+    background: #fee2e2;
+    border: none;
+    color: #ef4444;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.btn-remove-file:hover {
+    background: #fecaca;
+    transform: scale(1.1);
+}
+
+/* Design Assistance Card */
+.design-assistance-card {
+    background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid #80cbc4;
+    box-shadow: 0 8px 24px rgba(38, 166, 154, 0.15);
+}
+
+.assistance-icon {
+    font-size: 3rem;
+    background: rgba(255, 255, 255, 0.6);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.assistance-content {
+    flex: 1;
+}
+
+.assistance-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: #00695c;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.assistance-content p {
+    margin: 0 0 1.2rem 0;
+    color: #004d40;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.btn-whatsapp-chat {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-chat:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+/* Animation */
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .design-options-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .design-assistance-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .assistance-content {
+        width: 100%;
+    }
+
+    .btn-whatsapp-chat {
+        width: 100%;
+        justify-content: center;
+    }
+}

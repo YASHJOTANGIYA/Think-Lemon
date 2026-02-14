@@ -1,0 +1,195 @@
+.track-order-container {
+    padding: 4rem 0;
+    min-height: 80vh;
+    background-color: var(--bg-orange);
+}
+
+.track-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.track-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.track-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.track-header p {
+    color: #7f8c8d;
+}
+
+.track-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.track-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s;
+}
+
+.track-input:focus {
+    border-color: #f4d03f;
+    outline: none;
+}
+
+.track-btn {
+    padding: 15px 30px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.track-btn:hover {
+    background: #34495e;
+}
+
+.track-btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Order Status Result */
+.order-status-result {
+    border-top: 1px solid #eee;
+    padding-top: 3rem;
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.order-id {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.current-status {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-confirmed {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-processing {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status-shipped {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-delivered {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Timeline */
+.status-timeline {
+    position: relative;
+    padding-left: 30px;
+    margin-top: 2rem;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+    padding-left: 20px;
+    border-left: 2px solid #eee;
+}
+
+.timeline-item:last-child {
+    border-left: 2px solid transparent;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -9px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ddd;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px #ddd;
+}
+
+.timeline-item.active .timeline-dot {
+    background: #27ae60;
+    box-shadow: 0 0 0 1px #27ae60;
+}
+
+.timeline-content h4 {
+    margin: 0 0 0.5rem;
+    color: #2c3e50;
+    text-transform: capitalize;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .track-form {
+        flex-direction: column;
+    }
+
+    .track-card {
+        padding: 2rem;
+    }
+}

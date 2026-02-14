@@ -1,0 +1,865 @@
+/* Hero Section */
+.hero {
+    background: var(--gradient-dark);
+    color: var(--white);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--gray-light);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Sections */
+.categories-section,
+.featured-section,
+.features-section,
+.new-in-section,
+.lemon-standard-section,
+.marquee-cta-section {
+    padding: 2rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    font-size: 1.125rem;
+    color: var(--gray);
+}
+
+/* Designer Grid Section (Full Width Innovative Look) */
+/* Bento Grid Section */
+.bento-grid-section {
+    padding: 2rem 0;
+    margin-top: 0;
+    background-color: #fff;
+    width: 100%;
+}
+
+.bento-grid-section .container {
+    padding: 0 1.5rem;
+    /* Use standard container padding */
+}
+
+.section-header-left {
+    margin-bottom: 3rem;
+    text-align: left;
+    padding: 0 1rem;
+}
+
+.section-header-left h2 {
+    font-size: 6rem;
+    /* Reduced from 8rem */
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    color: #000;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+}
+
+.section-header-left h2 strong {
+    font-weight: 900;
+    display: block;
+    /* Stack on mobile if needed, or keep inline */
+}
+
+.section-header-left h2 span {
+    font-weight: 300;
+    display: block;
+}
+
+.section-header-left p {
+    color: var(--gray);
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
+    max-width: 400px;
+}
+
+@media (max-width: 992px) {
+    .section-header-left h2 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header-left h2 {
+        font-size: 2.5rem;
+    }
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 350px);
+    gap: 1.5rem;
+    height: auto;
+}
+
+@media (max-width: 992px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+.bento-card {
+    position: relative;
+    background: #f8f8f8;
+    border-radius: 24px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* Ensure card fills wrapper */
+}
+
+/* Specific Grid Spans applied to wrapper */
+.bento-card-wrapper.bento-wide {
+    grid-column: span 2;
+}
+
+.bento-card-wrapper.bento-tall {
+    grid-row: span 2;
+}
+
+.bento-card-wrapper {
+    height: 100%;
+}
+
+@media (max-width: 992px) {
+    .bento-card-wrapper.bento-wide {
+        grid-column: span 2;
+    }
+
+    .bento-card-wrapper.bento-tall {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .bento-card-wrapper.bento-wide,
+    .bento-card-wrapper.bento-tall {
+        grid-column: span 1;
+        grid-row: span 1;
+        height: 300px;
+    }
+}
+
+
+/* Hover Effects */
+.bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.bento-card[data-bg="blue"]:hover {
+    background: #e0f2fe;
+}
+
+.bento-card[data-bg="purple"]:hover {
+    background: #f3e8ff;
+}
+
+.bento-card[data-bg="orange"]:hover {
+    background: #ffedd5;
+}
+
+.bento-card[data-bg="pink"]:hover {
+    background: #fce7f3;
+}
+
+/* Content Styles */
+.bento-content {
+    padding: 2rem;
+    z-index: 2;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+.category-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.category-image {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+.bento-card:hover .category-image {
+    transform: scale(1.05);
+}
+
+.category-image img {
+    max-width: 80%;
+    max-height: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.category-arrow {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.arrow-icon {
+    font-size: 1.2rem;
+    color: #000;
+    transition: transform 0.3s ease;
+}
+
+.bento-card:hover .category-arrow {
+    transform: scale(1.1);
+    background: #000;
+}
+
+.bento-card:hover .arrow-icon {
+    color: #fff;
+    transform: rotate(-45deg);
+}
+
+/* NEW IN Section Styles */
+.new-in-section {
+    padding: 4rem 0 1rem 0;
+    /* Reduced bottom padding */
+    background: #fff;
+}
+
+.new-in-section .container {
+    max-width: 100%;
+    padding: 0 1.5rem;
+}
+
+.new-in-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    /* Align with grid */
+}
+
+/* ... existing code ... */
+
+/* THE LEMON STUDIO Section (Tera World Style) */
+.lemon-studio-section {
+    padding: 1rem 0 1rem 0;
+    /* Reduced top and bottom padding */
+    background: #fff;
+    overflow: hidden;
+}
+
+.new-in-header h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    /* Minimal */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    color: #000;
+}
+
+.view-all-arrow {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.3s;
+    line-height: 1;
+}
+
+.view-all-arrow:hover {
+    transform: translate(5px, -5px);
+}
+
+.new-in-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+@media (max-width: 992px) {
+    .new-in-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .new-in-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.new-in-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.new-in-card:hover {
+    border-color: #000;
+}
+
+.new-in-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    /* Square */
+    background-color: #f9f9f9;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-in-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.new-in-card:hover .new-in-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.new-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    border: 1px solid #000;
+    padding: 0.2rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 2;
+    letter-spacing: 1px;
+}
+
+.new-in-info {
+    padding: 1rem;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-in-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.new-in-info .price {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+
+/* THE LEMON STANDARD Section (Replacement for Why Choose Us) */
+.lemon-standard-section {
+    background: #000;
+    color: #fff;
+    padding: 6rem 0;
+}
+
+.standard-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.standard-header h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.standard-header p {
+    font-size: 1.2rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.standard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    /* Gap for border effect */
+    background: #333;
+    /* Color of the gap lines */
+    border: 1px solid #333;
+}
+
+.standard-item {
+    background: #000;
+    padding: 3rem 2rem;
+    position: relative;
+    transition: background 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.standard-item:hover {
+    background: #111;
+}
+
+.standard-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    display: block;
+    margin-bottom: 2rem;
+    font-family: monospace;
+}
+
+.standard-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.standard-item p {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+    .standard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .standard-item {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .standard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* MARQUEE CTA Section (Replacement for CTA) */
+.marquee-cta-section {
+    position: relative;
+    height: 400px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+}
+
+.marquee-track {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-5deg);
+    white-space: nowrap;
+    display: flex;
+    width: 200%;
+    /* Ensure width for animation */
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.marquee-content {
+    font-size: 8rem;
+    font-weight: 900;
+    color: #000;
+    animation: marquee 20s linear infinite;
+    padding-right: 2rem;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.cta-overlay-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.cta-overlay-content h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.btn-cta-glitch {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-cta-glitch:hover {
+    background: #fff;
+    color: #000;
+    border: 2px solid #000;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .marquee-content {
+        font-size: 4rem;
+    }
+
+    .cta-overlay-content h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .product-image {
+        height: 180px;
+    }
+
+    .product-info {
+        padding: 1rem;
+    }
+
+    .product-info h3 {
+        font-size: 1rem;
+    }
+
+    .price {
+        font-size: 1.2rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+
+
+/* Service Highlight Section (Handpicked Style) */
+.service-highlight-wrapper {
+    padding: 2rem 0;
+    width: 100%;
+    max-width: none;
+}
+
+/* Remove gutters for this specific section so card hits container edges */
+.service-highlight-wrapper .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.service-highlight-card {
+    height: 60vh;
+    min-height: 500px;
+    border-radius: 45px;
+    overflow: hidden;
+    position: relative;
+    background-color: #2e003e;
+    /* Fallback dark purple */
+    background-image: url('../assets/digital_services_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    width: 100%;
+}
+
+.service-highlight-content {
+    padding-left: 5rem;
+    max-width: 600px;
+}
+
+.service-highlight-content h2 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* THE LEMON STUDIO Section (Tera World Style) */
+.lemon-studio-section {
+    padding: 6rem 0;
+    background: #fff;
+    overflow: hidden;
+}
+
+.lemon-studio-section .container {
+    max-width: 100%;
+    padding: 0 1.5rem;
+}
+
+.lemon-studio-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.lemon-studio-text {
+    flex: 1;
+    max-width: 50%;
+}
+
+.lemon-studio-text h2 {
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.lemon-studio-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    max-width: 400px;
+}
+
+.lemon-studio-images {
+    flex: 1;
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.studio-img-small {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    /* Parallax Prep */
+    will-change: transform;
+    /* Ensure z-index keeps it above */
+    z-index: 2;
+}
+
+
+
+/* Shadow Pulse Animation Removed */
+
+.studio-img-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.studio-img-large {
+    width: 400px;
+    height: 500px;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.studio-img-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive adjustments for Studio Section */
+@media (max-width: 992px) {
+    .lemon-studio-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .lemon-studio-text {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .lemon-studio-text h2 {
+        font-size: 3.5rem;
+    }
+
+    .lemon-studio-text p {
+        margin: 0 auto;
+    }
+
+    .lemon-studio-images {
+        width: 100%;
+        height: auto;
+        min-height: 500px;
+        justify-content: center;
+    }
+
+    .studio-img-small {
+        left: 5%;
+        bottom: 0;
+    }
+}
+
+.service-highlight-content p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-discover {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: #dfff00;
+    /* Lime/Yellow */
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 15px rgba(223, 255, 0, 0.3);
+}
+
+.btn-discover:hover {
+    background-color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for Service Highlight */
+@media (max-width: 768px) {
+    .service-highlight-card {
+        height: 50vh;
+        min-height: 400px;
+        border-radius: 16px;
+    }
+
+    .service-highlight-content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .service-highlight-content h2 {
+        font-size: 2.5rem;
+    }
+}

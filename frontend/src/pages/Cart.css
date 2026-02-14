@@ -1,0 +1,402 @@
+/* Modern Minimalist "Split Screen" Cart Design */
+
+/* Main Container: Full viewport height focus on desktop */
+.cart-page-container {
+    min-height: calc(100vh - 80px);
+    /* Adjust based on navbar height */
+    background-color: #f8f9fa;
+    /* Very clean gray */
+    padding: 0;
+}
+
+/* Reset inner container to full width for this design */
+.cart-page-container .container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* The Grid Split */
+.cart-layout {
+    display: flex;
+    min-height: calc(100vh - 80px);
+}
+
+/* LEFT SIDE: Cart Items (70%) */
+.cart-items-section {
+    flex: 1;
+    padding: 3rem 4rem;
+    background-color: #ffffff;
+    overflow-y: auto;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: thin;
+}
+
+.cart-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.cart-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0;
+    letter-spacing: -1.5px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-title span {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--gray);
+    letter-spacing: normal;
+    background: #f3f4f6;
+    padding: 0.2rem 0.8rem;
+    border-radius: 50px;
+}
+
+.clear-cart-btn {
+    font-size: 0.9rem;
+    color: #ef4444;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.clear-cart-btn:hover {
+    opacity: 1;
+}
+
+/* The Modern Item Row */
+.modern-cart-item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    align-items: center;
+    animation: slideIn 0.4s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.item-image-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    /* Slightly squarer modern look */
+    overflow: hidden;
+    background-color: #f9fafb;
+    position: relative;
+}
+
+.item-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    /* Cool effect for product shots on white */
+}
+
+/* Fallback if image isn't appropriate for multiply */
+.item-image-wrapper img:not([src*=".png"]) {
+    mix-blend-mode: normal;
+    object-fit: cover;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.item-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark);
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.item-customizations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.customization-pill {
+    font-size: 0.75rem;
+    color: var(--gray);
+    background: #f3f4f6;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Controls re-arranged */
+.item-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.item-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.quantity-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 0.25rem;
+}
+
+.qty-btn {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--gray);
+    transition: color 0.2s;
+}
+
+.qty-btn:hover:not(:disabled) {
+    color: var(--dark);
+    background: #f3f4f6;
+    border-radius: 4px;
+}
+
+.qty-display {
+    width: 28px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.item-remove-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    display: flex;
+    /* Align icon if needed */
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.item-remove-btn:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* RIGHT SIDE: Summary / Receipt (30%) */
+.cart-summary-section {
+    width: 400px;
+    background-color: var(--dark);
+    /* Dark Sidebar */
+    color: white;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 80px;
+    /* Navbar offset */
+    height: calc(100vh - 80px);
+}
+
+.summary-card {
+    /* Reset card styles because the section itself IS the card now */
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-title {
+    font-size: 2rem;
+    font-weight: 300;
+    /* Light weight for elegance */
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+    color: white;
+}
+
+.summary-details {
+    flex: 1;
+    /* Push total to bottom? No, let's keep it top-ish */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.summary-line span:last-child {
+    color: white;
+    font-weight: 500;
+}
+
+.summary-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 1rem 0;
+}
+
+.summary-line.total {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    /* Pop of color */
+    align-items: center;
+    margin-top: auto;
+    /* Push total to the bottom of the details block */
+    margin-bottom: 2rem;
+}
+
+.summary-line.total span:first-child {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+}
+
+.checkout-btn-modern {
+    background: white;
+    color: var(--dark);
+    border: none;
+    padding: 1.25rem;
+    border-radius: 0;
+    /* Sharp modern button? Or slightly rounded? */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: transform 0.2s;
+}
+
+.checkout-btn-modern:hover {
+    transform: translateY(-2px);
+    background: var(--light);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .cart-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .cart-page-container .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .cart-items-section {
+        padding: 2rem 0;
+        background: transparent;
+    }
+
+    .cart-summary-section {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        padding: 2rem;
+    }
+
+    .modern-cart-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        border: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .cart-title {
+        font-size: 2rem;
+    }
+
+    .modern-cart-item {
+        grid-template-columns: 80px 1fr;
+        gap: 1rem;
+    }
+
+    .item-controls {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #f3f4f6;
+    }
+
+    .item-price {
+        order: 1;
+        /* Move price to end */
+    }
+
+    .quantity-wrapper {
+        order: 0;
+    }
+
+    .item-remove-btn {
+        margin-top: 0;
+    }
+}

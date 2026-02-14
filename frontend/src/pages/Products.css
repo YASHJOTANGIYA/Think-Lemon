@@ -1,0 +1,124 @@
+.products-page {
+    padding: 3rem 0;
+}
+
+.products-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.products-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--dark);
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.filter-chip {
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-full);
+    background: var(--white);
+    border: 1px solid #eee;
+    color: var(--gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-normal);
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.no-results {
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--gray);
+}
+
+/* Product Card Styles (if not inherited from Home.css) */
+/* Adding specific styles for wishlist button */
+.wishlist-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    z-index: 2;
+}
+
+.wishlist-btn:hover {
+    transform: scale(1.1);
+}
+
+.wishlist-btn.active {
+    background: #fff0f0;
+}
+
+/* All Categories View Styles */
+.all-categories-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.category-grid-large {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.category-card-large {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Left align like the screenshot menu */
+    justify-content: center;
+    padding: 2rem;
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--dark);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    min-height: 120px;
+}
+
+.category-card-large:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+    background: #FFFAEB;
+    /* Very light subtle background on hover */
+}
+
+.category-card-large h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.category-card-large:hover h3 {
+    color: var(--primary-color);
+    /* Or keep regular color */
+}
