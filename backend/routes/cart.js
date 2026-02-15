@@ -19,14 +19,17 @@ router.post('/add', protect, async (req, res) => {
         const { productId, quantity: qtyInput = 1, customization, uploadedFiles } = req.body;
         const quantity = parseInt(qtyInput) || 1;
 
-        console.log('Adding to cart:', { productId, quantity, customization });
+        console.log('Adding to cart - Request Body:', { productId, quantity, customization, uploadedFiles });
 
         if (!productId) {
             return res.status(400).json({ success: false, message: 'Product ID is required' });
         }
 
         const product = await Product.findById(productId);
-        if (!product) return res.status(404).json({ success: false, message: 'Product not found' });
+        if (!product) {
+            console.error(`Product not found with ID: ${productId}`);
+            return res.status(404).json({ success: false, message: 'Product not found' });
+        }
 
         let cart = await Cart.findOne({ user: req.user._id });
 
@@ -34,9 +37,8 @@ router.post('/add', protect, async (req, res) => {
         const normalizeCustomization = (cust) => {
             if (!cust) return {};
             if (cust instanceof Map) return Object.fromEntries(cust);
-            // If it's a Mongoose Map but not instanceof Map (rare edge case), try toObject if available
             if (typeof cust.toObject === 'function') return cust.toObject();
-            return cust; // Plain object
+            return cust;
         };
 
         const areCustomizationsEqual = (c1, c2) => {
@@ -44,7 +46,6 @@ router.post('/add', protect, async (req, res) => {
                 const obj1 = normalizeCustomization(c1);
                 const obj2 = normalizeCustomization(c2);
 
-                // Compare stringified keys and values
                 const keys1 = Object.keys(obj1).sort();
                 const keys2 = Object.keys(obj2).sort();
 
@@ -60,15 +61,16 @@ router.post('/add', protect, async (req, res) => {
             }
         };
 
-        if (!cart) {
-            const sanitizedCustomization = {};
-            if (customization) {
-                Object.entries(customization).forEach(([k, v]) => {
-                    if (v !== null && v !== undefined) sanitizedCustomization[k] = String(v);
-                });
-            }
-            const files = Array.isArray(uploadedFiles) ? uploadedFiles : [];
+        const sanitizedCustomization = {};
+        if (customization) {
+            Object.entries(customization).forEach(([k, v]) => {
+                if (v !== null && v !== undefined) sanitizedCustomization[k] = String(v);
+            });
+        }
+        const files = Array.isArray(uploadedFiles) ? uploadedFiles : [];
 
+        if (!cart) {
+            console.log('Creating new cart for user:', req.user._id);
             cart = await Cart.create({
                 user: req.user._id,
                 items: [{
@@ -79,36 +81,25 @@ router.post('/add', protect, async (req, res) => {
                 }]
             });
         } else {
-            console.log('Updating existing cart');
+            console.log('Updating existing cart for user:', req.user._id);
 
-            // Find item with same product ID AND same customization
-            let itemIndex = -1;
+            // Validate items array exists
+            if (!cart.items) cart.items = [];
 
-            // Safe search for item
-            if (cart.items && Array.isArray(cart.items)) {
-                itemIndex = cart.items.findIndex(item => {
-                    if (!item || !item.product) return false;
-                    if (item.product.toString() !== productId) return false;
-                    return areCustomizationsEqual(item.customization, customization);
-                });
-            }
+            let itemIndex = cart.items.findIndex(item => {
+                if (!item || !item.product) return false;
+                if (item.product.toString() !== productId) return false;
+                return areCustomizationsEqual(item.customization, customization);
+            });
 
             if (itemIndex > -1) {
-                console.log('Item found, updating quantity');
+                console.log(`Item found at index ${itemIndex}, updating quantity`);
                 cart.items[itemIndex].quantity += quantity;
                 if (uploadedFiles && Array.isArray(uploadedFiles)) {
                     cart.items[itemIndex].uploadedFiles = uploadedFiles;
                 }
             } else {
-                console.log('Item not found, pushing new item');
-                const sanitizedCustomization = {};
-                if (customization) {
-                    Object.entries(customization).forEach(([k, v]) => {
-                        if (v !== null && v !== undefined) sanitizedCustomization[k] = String(v);
-                    });
-                }
-                const files = Array.isArray(uploadedFiles) ? uploadedFiles : [];
-
+                console.log('Item not found, adding new item');
                 cart.items.push({
                     product: productId,
                     quantity,
@@ -119,11 +110,23 @@ router.post('/add', protect, async (req, res) => {
             await cart.save();
         }
 
-        cart = await Cart.findById(cart._id).populate('items.product', 'name price images slug').lean();
-        res.json({ success: true, message: 'Item added to cart', data: cart });
+        // Re-fetch cart to ensure populated fields are returned
+        const populatedCart = await Cart.findById(cart._id).populate('items.product', 'name price images slug').lean();
+
+        // Filter out null products just in case
+        if (populatedCart && populatedCart.items) {
+            populatedCart.items = populatedCart.items.filter(item => item.product !== null);
+        }
+
+        res.json({ success: true, message: 'Item added to cart', data: populatedCart });
     } catch (error) {
-        console.error('Error in /api/cart/add:', error);
-        res.status(500).json({ success: false, message: 'Error adding item to cart', error: error.message });
+        console.error('CRITICAL ERROR in /api/cart/add:', error);
+        console.error(error.stack);
+        res.status(500).json({
+            success: false,
+            message: 'Error adding item to cart',
+            error: error.message
+        });
     }
 });
 
