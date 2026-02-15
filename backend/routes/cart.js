@@ -21,6 +21,10 @@ router.post('/add', protect, async (req, res) => {
 
         console.log('Adding to cart:', { productId, quantity, customization });
 
+        if (!productId) {
+            return res.status(400).json({ success: false, message: 'Product ID is required' });
+        }
+
         const product = await Product.findById(productId);
         if (!product) return res.status(404).json({ success: false, message: 'Product not found' });
 
@@ -36,19 +40,27 @@ router.post('/add', protect, async (req, res) => {
         };
 
         const areCustomizationsEqual = (c1, c2) => {
-            const obj1 = normalizeCustomization(c1);
-            const obj2 = normalizeCustomization(c2);
-            const keys1 = Object.keys(obj1).sort();
-            const keys2 = Object.keys(obj2).sort();
-            if (keys1.length !== keys2.length) return false;
-            for (let key of keys1) {
-                if (obj1[key] !== obj2[key]) return false;
+            try {
+                const obj1 = normalizeCustomization(c1);
+                const obj2 = normalizeCustomization(c2);
+
+                // Compare stringified keys and values
+                const keys1 = Object.keys(obj1).sort();
+                const keys2 = Object.keys(obj2).sort();
+
+                if (keys1.length !== keys2.length) return false;
+
+                for (let key of keys1) {
+                    if (String(obj1[key]) !== String(obj2[key])) return false;
+                }
+                return true;
+            } catch (err) {
+                console.error('Comparing customization error:', err);
+                return false;
             }
-            return true;
         };
 
         if (!cart) {
-            console.log('Creating new cart for user:', req.user._id);
             const sanitizedCustomization = {};
             if (customization) {
                 Object.entries(customization).forEach(([k, v]) => {
@@ -68,11 +80,18 @@ router.post('/add', protect, async (req, res) => {
             });
         } else {
             console.log('Updating existing cart');
+
             // Find item with same product ID AND same customization
-            const itemIndex = cart.items.findIndex(item => {
-                if (item.product.toString() !== productId) return false;
-                return areCustomizationsEqual(item.customization, customization);
-            });
+            let itemIndex = -1;
+
+            // Safe search for item
+            if (cart.items && Array.isArray(cart.items)) {
+                itemIndex = cart.items.findIndex(item => {
+                    if (!item || !item.product) return false;
+                    if (item.product.toString() !== productId) return false;
+                    return areCustomizationsEqual(item.customization, customization);
+                });
+            }
 
             if (itemIndex > -1) {
                 console.log('Item found, updating quantity');
