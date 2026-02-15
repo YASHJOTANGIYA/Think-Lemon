@@ -350,7 +350,8 @@ const ProductDetails = () => {
             }
         } catch (error) {
             console.error('Add to cart error:', error);
-            alert('Failed to add to cart: ' + (error.message || 'Unknown error'));
+            const errorMessage = error.response?.data?.message || error.message || 'Unknown error';
+            alert('Failed to add to cart: ' + errorMessage);
         } finally {
             setAddingToCart(false);
         }
