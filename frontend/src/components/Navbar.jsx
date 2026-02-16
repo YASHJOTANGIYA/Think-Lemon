@@ -5,7 +5,6 @@ import { useCart } from '../context/CartContext';
 import { productsAPI } from '../services/api';
 import './Navbar.css';
 import logoImg from '../assets/logo.jpg';
-import cmykLogo from '../assets/cmyk-logo.png';
 
 const Navbar = () => {
     const { user, logout, isAuthenticated, isAdmin } = useAuth();
