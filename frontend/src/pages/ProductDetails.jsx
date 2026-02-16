@@ -366,7 +366,7 @@ const ProductDetails = () => {
                 errorMessage = error.message;
             }
 
-            alert(`Failed to add to cart: ${errorMessage}`);
+            alert(`[New] Failed to add to cart: ${errorMessage}`);
         } finally {
             setAddingToCart(false);
         }
