@@ -1659,3 +1659,38 @@
     box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.1);
     outline: none;
 }
+
+/* Mobile Responsive Overrides - Must be at the end */
+@media (max-width: 768px) {
+    .pouch-custom-layout .product-title-large {
+        font-size: 1.3rem !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .pouch-custom-layout .product-details-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .pouch-custom-layout .specs-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .pouch-custom-layout .moq-lead-row {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    .pouch-custom-layout .selectors-row {
+        flex-direction: column !important;
+    }
+
+    .pouch-custom-layout .action-row {
+        flex-direction: column !important;
+    }
+
+    .pouch-custom-layout .total-price {
+        font-size: 1.8rem !important;
+    }
+}
