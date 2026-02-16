@@ -62,9 +62,22 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container navbar-content">
-                <Link to="/" className="navbar-logo">
-                    <img src={logoImg} alt="Think Lemon Logo" className="logo-image" style={{ width: '32px', height: '32px', objectFit: 'contain', marginRight: '8px' }} />
-                    <span className="logo-text">Think Lemon</span>
+                <Link to="/" className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+                    {/* CMYK Dots Icon */}
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', width: '24px', height: '24px' }}>
+                        <div style={{ backgroundColor: '#00adef', borderRadius: '50%' }}></div> {/* Cyan */}
+                        <div style={{ backgroundColor: '#ec008c', borderRadius: '50%' }}></div> {/* Magenta */}
+                        <div style={{ backgroundColor: '#fff200', borderRadius: '50%' }}></div> {/* Yellow */}
+                        <div style={{ backgroundColor: '#231f20', borderRadius: '50%' }}></div> {/* Black */}
+                    </div>
+
+                    {/* Logo Text */}
+                    <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
+                        <div style={{ display: 'flex', alignItems: 'baseline' }}>
+                            <span style={{ fontSize: '24px', fontWeight: '800', color: '#000', letterSpacing: '-0.5px', fontFamily: '"Inter", sans-serif' }}>PrintLok</span>
+                            <span style={{ fontSize: '14px', fontWeight: '400', color: '#000', marginLeft: '4px' }}>studio</span>
+                        </div>
+                    </div>
                 </Link>
 
                 {/* Center Navigation Links */}
