@@ -25,6 +25,11 @@ router.post('/add', protect, async (req, res) => {
             return res.status(400).json({ success: false, message: 'Product ID is required' });
         }
 
+        if (!mongoose.Types.ObjectId.isValid(productId)) {
+            console.error('Invalid Product ID:', productId);
+            return res.status(400).json({ success: false, message: 'Invalid Product ID format' });
+        }
+
         const product = await Product.findById(productId);
         if (!product) {
             console.error(`Product not found with ID: ${productId}`);
@@ -62,12 +67,16 @@ router.post('/add', protect, async (req, res) => {
         };
 
         const sanitizedCustomization = {};
-        if (customization) {
+        if (customization && typeof customization === 'object') {
             Object.entries(customization).forEach(([k, v]) => {
                 if (v !== null && v !== undefined) sanitizedCustomization[k] = String(v);
             });
         }
-        const files = Array.isArray(uploadedFiles) ? uploadedFiles : [];
+
+        // Ensure uploadedFiles is an array of strings
+        const files = Array.isArray(uploadedFiles)
+            ? uploadedFiles.filter(f => typeof f === 'string')
+            : [];
 
         if (!cart) {
             console.log('Creating new cart for user:', req.user._id);
@@ -95,8 +104,9 @@ router.post('/add', protect, async (req, res) => {
             if (itemIndex > -1) {
                 console.log(`Item found at index ${itemIndex}, updating quantity`);
                 cart.items[itemIndex].quantity += quantity;
-                if (uploadedFiles && Array.isArray(uploadedFiles)) {
-                    cart.items[itemIndex].uploadedFiles = uploadedFiles;
+                // Only update uploadedFiles if new ones are provided and valid
+                if (files.length > 0) {
+                    cart.items[itemIndex].uploadedFiles = files;
                 }
             } else {
                 console.log('Item not found, adding new item');
