@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { productsAPI } from '../services/api';
@@ -16,6 +16,12 @@ const Navbar = () => {
     const [isSearching, setIsSearching] = useState(false);
     const searchRef = useRef(null);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // Close dropdown on route change
+    useEffect(() => {
+        setShowResults(false);
+    }, [location]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
