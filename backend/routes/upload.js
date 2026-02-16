@@ -4,14 +4,28 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
+const os = require('os');
+
 // Configure storage
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        // Use /tmp for Vercel/Production, otherwise uploads/
-        const uploadDir = process.env.NODE_ENV === 'production' ? '/tmp' : 'uploads/';
-        // Create directory if it doesn't exist
+        // Use os.tmpdir() for Vercel/Production to ensure writable path
+        // Locally use 'uploads/'
+        let uploadDir = 'uploads/';
+
+        if (process.env.NODE_ENV === 'production') {
+            uploadDir = os.tmpdir();
+        }
+
+        // Create directory if it doesn't exist (mainly for local 'uploads/')
         if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, { recursive: true });
+            try {
+                fs.mkdirSync(uploadDir, { recursive: true });
+            } catch (err) {
+                console.error('Error creating upload directory:', err);
+                // Fallback to tmpdir if local creation fails
+                uploadDir = os.tmpdir();
+            }
         }
         cb(null, uploadDir);
     },
