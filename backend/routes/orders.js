@@ -254,7 +254,7 @@ router.put('/:id/status', protect, adminOnly, async (req, res) => {
                     </a>
                     `}
                     
-                    <p>Thank you for choosing Think Lemon!</p>
+                    <p>Thank you for choosing PrintLok Studio!</p>
                 `;
 
                 await sendEmail({
@@ -329,7 +329,7 @@ router.put('/:id/pay-balance', protect, async (req, res) => {
 
                         <p>We are now getting your order <strong>#${order.orderNumber}</strong> ready for shipping. You will receive a tracking number as soon as it is dispatched.</p>
                         
-                        <p style="margin-top: 30px;">Thank you for choosing Think Lemon!</p>
+                        <p style="margin-top: 30px;">Thank you for choosing PrintLok Studio!</p>
                         <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
                         <small style="color: #666;">View your order details <a href="${process.env.FRONTEND_URL || 'http://localhost:5173'}/track-order/${order.orderNumber}">here</a>.</small>
                     </div>

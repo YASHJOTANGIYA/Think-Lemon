@@ -133,7 +133,7 @@ const Checkout = () => {
                     key: import.meta.env.VITE_RAZORPAY_KEY_ID || "rzp_test_placeholder",
                     amount: amount.toString(),
                     currency: currency,
-                    name: "Think Lemon",
+                    name: "PrintLok Studio",
                     description: `75% Advance Payment for Order`,
                     order_id: order_id,
                     handler: async function (response) {
@@ -210,7 +210,7 @@ const Checkout = () => {
                     <div className="order-success fade-in">
                         <div className="success-icon">🎉</div>
                         <h1>Order Placed Successfully!</h1>
-                        <p>Thank you for shopping with Think Lemon.</p>
+                        <p>Thank you for shopping with PrintLok Studio.</p>
                         <div className="order-number">
                             Order ID: <strong>{orderId}</strong>
                         </div>

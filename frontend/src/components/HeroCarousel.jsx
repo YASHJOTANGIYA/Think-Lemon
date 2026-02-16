@@ -31,7 +31,7 @@ const HeroCarousel = () => {
         {
             id: 3,
             image: printingHero,
-            title: "Think Lemon Express",
+            title: "PrintLok Express",
             subtitle: "Need it yesterday? Get 24-hour delivery on select items.",
             ctaText: "Order Now",
             ctaLink: "/products",

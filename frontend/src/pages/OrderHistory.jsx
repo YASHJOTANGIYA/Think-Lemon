@@ -76,7 +76,7 @@ const OrderHistory = ({ embedded = false }) => {
                 key: import.meta.env.VITE_RAZORPAY_KEY_ID || "rzp_test_placeholder",
                 amount: amount.toString(),
                 currency: currency,
-                name: "Think Lemon",
+                name: "PrintLok Studio",
                 description: `Balance Payment for Order #${order.orderNumber}`,
                 order_id: order_id,
                 handler: async function (response) {

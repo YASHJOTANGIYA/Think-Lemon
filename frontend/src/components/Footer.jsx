@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="container">
                 {/* Massive Brand Header */}
                 <div className="footer-brand-header">
-                    <h1 className="brand-name-large">THINK LEMON</h1>
+                    <h1 className="brand-name-large">PRINTLOK STUDIO</h1>
                 </div>
 
                 <div className="footer-main-grid">
@@ -68,7 +68,7 @@ const Footer = () => {
                         <a href="https://www.linkedin.com/in/parth-jotangiya" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
                     </div>
                     <div className="copyright">
-                        <p>&copy; {new Date().getFullYear()} Think Lemon. Crafted in India.</p>
+                        <p>&copy; {new Date().getFullYear()} PrintLok Studio. Crafted in India.</p>
                     </div>
                     <div className="legal-links">
                         <Link to="/privacy">Privacy</Link>

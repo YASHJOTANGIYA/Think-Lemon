@@ -230,7 +230,7 @@ const seedDatabase = async () => {
         });
 
         await Product.create({
-            name: 'Think Lemon Sample Kit',
+            name: 'PrintLok Studio Sample Kit',
             slug: 'sample-kit',
             description: 'Experience our quality firsthand. Includes samples of business cards, flyers, stickers, and more. Fully refundable on your next order!',
             category: cat1._id,

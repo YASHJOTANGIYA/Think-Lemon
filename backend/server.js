@@ -83,7 +83,7 @@ app.use('/api/upload', require('./routes/upload'));
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
-    message: 'Think Lemon API is running',
+    message: 'PrintLok Studio API is running',
     timestamp: new Date().toISOString()
   });
 });

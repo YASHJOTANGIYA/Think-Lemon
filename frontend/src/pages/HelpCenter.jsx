@@ -92,7 +92,7 @@ const HelpCenter = () => {
                             </svg>
                         </div>
                         <h3>Postal address</h3>
-                        <p className="contact-detail">Think Lemon Printing Services Pvt. Ltd.</p>
+                        <p className="contact-detail">PrintLok Studio Printing Services Pvt. Ltd.</p>
                         <p className="contact-sub">123, Print Street, Tech Park, Bangalore, Karnataka 560001</p>
                     </div>
                 </div>

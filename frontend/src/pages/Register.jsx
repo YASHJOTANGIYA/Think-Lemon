@@ -55,7 +55,7 @@ const Register = () => {
             <div className="auth-card fade-in">
                 <div className="auth-header">
                     <h2>Create Account</h2>
-                    <p>Join Think Lemon today</p>
+                    <p>Join PrintLok Studio today</p>
                 </div>
 
                 {error && <div className="error-message">{error}</div>}

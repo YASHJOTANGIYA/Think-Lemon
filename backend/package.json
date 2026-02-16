@@ -1,7 +1,7 @@
 {
     "name": "backend",
     "version": "1.0.0",
-    "description": "Think Lemon Backend API",
+    "description": "PrintLok Studio Backend API",
     "main": "server.js",
     "scripts": {
         "start": "node server.js",

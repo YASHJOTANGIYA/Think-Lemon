@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     return (
         <div className="container" style={{ padding: '4rem 0', textAlign: 'center' }}>
-            <h1>About Think Lemon</h1>
+            <h1>About PrintLok Studio</h1>
             <p className="lead" style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
                 We are a creative agency and e-commerce platform dedicated to providing high-quality custom merchandise and digital services.
             </p>

@@ -35,8 +35,8 @@ router.post('/register', async (req, res) => {
         try {
             await sendEmail({
                 email: user.email,
-                subject: 'Welcome to Think Lemon!',
-                message: `<h1>Welcome, ${user.name}!</h1><p>Thank you for registering with Think Lemon. We are excited to have you on board.</p>`
+                subject: 'Welcome to PrintLok Studio!',
+                message: `<h1>Welcome, ${user.name}!</h1><p>Thank you for registering with PrintLok Studio. We are excited to have you on board.</p>`
             });
         } catch (emailError) {
             console.error('Error sending welcome email:', emailError);
@@ -165,8 +165,8 @@ router.post('/google', async (req, res) => {
             try {
                 await sendEmail({
                     email: user.email,
-                    subject: 'Welcome to Think Lemon!',
-                    message: `<h1>Welcome, ${user.name}!</h1><p>Thank you for registering with Think Lemon via Google.</p>`
+                    subject: 'Welcome to PrintLok Studio!',
+                    message: `<h1>Welcome, ${user.name}!</h1><p>Thank you for registering with PrintLok Studio via Google.</p>`
                 });
             } catch (emailError) {
                 console.error('Error sending email:', emailError);
