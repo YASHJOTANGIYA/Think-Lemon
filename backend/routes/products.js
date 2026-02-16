@@ -47,20 +47,49 @@ router.get('/', async (req, res) => {
         }
 
         if (featured === 'true') query.isFeatured = true;
-        if (search) query.$text = { $search: search };
+
+        // Improved search logic
+        if (search) {
+            query.$or = [
+                { name: { $regex: search, $options: 'i' } },
+                { description: { $regex: search, $options: 'i' } },
+                { tags: { $regex: search, $options: 'i' } }
+            ];
+        }
 
         let sortOption = {};
-        if (sort === 'price-low') sortOption = { price: 1 };
+        if (search) {
+            // When searching, prioritize exact name matches
+            sortOption = {
+                name: 1  // This will put exact matches first
+            };
+        } else if (sort === 'price-low') sortOption = { price: 1 };
         else if (sort === 'price-high') sortOption = { price: -1 };
         else if (sort === 'newest') sortOption = { createdAt: -1 };
         else if (sort === 'popular') sortOption = { 'rating.average': -1 };
         else sortOption = { createdAt: -1 };
 
-        const products = await Product.find(query)
+        let products = await Product.find(query)
             .populate('category', 'name slug')
             .sort(sortOption)
             .limit(parseInt(limit))
             .skip((parseInt(page) - 1) * parseInt(limit));
+
+        // If searching, re-sort by relevance (name matches first)
+        if (search) {
+            const searchLower = search.toLowerCase();
+            products = products.sort((a, b) => {
+                const aNameMatch = a.name.toLowerCase().includes(searchLower);
+                const bNameMatch = b.name.toLowerCase().includes(searchLower);
+
+                // Prioritize name matches over description matches
+                if (aNameMatch && !bNameMatch) return -1;
+                if (!aNameMatch && bNameMatch) return 1;
+
+                // If both match in name or both don't, sort alphabetically
+                return a.name.localeCompare(b.name);
+            });
+        }
 
         const total = await Product.countDocuments(query);
 
