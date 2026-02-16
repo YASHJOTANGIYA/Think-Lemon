@@ -12,6 +12,12 @@ router.get('/', async (req, res) => {
     try {
         const { category, search, featured, sort, tag, shape, finish, industry, limit = 20, page = 1 } = req.query;
 
+        // Handle common typos in search
+        let searchTerm = search;
+        if (search && search.toLowerCase().includes('buisness')) {
+            searchTerm = search.replace(/buisness/ig, 'business');
+        }
+
         let query = { isActive: true };
 
         // Filter by Category (ID or Slug)
@@ -49,16 +55,16 @@ router.get('/', async (req, res) => {
         if (featured === 'true') query.isFeatured = true;
 
         // Improved search logic
-        if (search) {
+        if (searchTerm) {
             query.$or = [
-                { name: { $regex: search, $options: 'i' } },
-                { description: { $regex: search, $options: 'i' } },
-                { tags: { $regex: search, $options: 'i' } }
+                { name: { $regex: searchTerm, $options: 'i' } },
+                { description: { $regex: searchTerm, $options: 'i' } },
+                { tags: { $regex: searchTerm, $options: 'i' } }
             ];
         }
 
         let sortOption = {};
-        if (search) {
+        if (searchTerm) {
             // When searching, prioritize exact name matches
             sortOption = {
                 name: 1  // This will put exact matches first
@@ -76,8 +82,8 @@ router.get('/', async (req, res) => {
             .skip((parseInt(page) - 1) * parseInt(limit));
 
         // If searching, re-sort by relevance (name matches first)
-        if (search) {
-            const searchLower = search.toLowerCase();
+        if (searchTerm) {
+            const searchLower = searchTerm.toLowerCase();
             products = products.sort((a, b) => {
                 const aNameMatch = a.name.toLowerCase().includes(searchLower);
                 const bNameMatch = b.name.toLowerCase().includes(searchLower);

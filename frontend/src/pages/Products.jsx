@@ -27,6 +27,15 @@ const Products = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        // Redirect logic for specific search terms
+        if (searchQuery) {
+            const term = searchQuery.toLowerCase().trim();
+            if (['business card', 'buisness card', 'business cards', 'buisness cards'].includes(term)) {
+                navigate('/categories/business-cards', { replace: true });
+                return;
+            }
+        }
+
         fetchData();
         updateTitle();
     }, [categorySlug, searchQuery, tagQuery, shapeQuery, finishQuery, industryQuery]);
