@@ -466,7 +466,7 @@ const ProductDetails = () => {
 
                         {/* Right: Info */}
                         <div className="product-info-content">
-                            <h1 className="product-title-large">Stand Up {config.size}</h1>
+                            <h1 className="product-title-large">{config.size}</h1>
 
                             <div className="specs-grid">
                                 <div className="spec-item">

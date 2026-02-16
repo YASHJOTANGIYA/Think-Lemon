@@ -61,12 +61,6 @@ const RelatedProducts = ({ currentProduct }) => {
                             </div>
                             <div className="related-info">
                                 <h3>{product.name}</h3>
-                                <div className="related-price">
-                                    <span className="current">₹{product.price}</span>
-                                    {product.comparePrice && (
-                                        <span className="original">₹{product.comparePrice}</span>
-                                    )}
-                                </div>
                             </div>
                         </Link>
                     ))}
