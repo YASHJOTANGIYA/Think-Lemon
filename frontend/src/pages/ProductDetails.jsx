@@ -350,8 +350,23 @@ const ProductDetails = () => {
             }
         } catch (error) {
             console.error('Add to cart error:', error);
-            const errorMessage = error.response?.data?.message || error.message || 'Unknown error';
-            alert('Failed to add to cart: ' + errorMessage);
+
+            let errorMessage = 'Unknown error';
+            if (error.response) {
+                // Server responded with a status code outside 2xx
+                console.error('Server Error Response:', error.response.data);
+                errorMessage = error.response.data?.message
+                    || (typeof error.response.data === 'string' ? error.response.data : error.response.statusText)
+                    || `Server Error (${error.response.status})`;
+            } else if (error.request) {
+                // Request made but no response received
+                errorMessage = 'No response from server. Please check your internet connection.';
+            } else {
+                // Error setting up the request
+                errorMessage = error.message;
+            }
+
+            alert(`Failed to add to cart: ${errorMessage}`);
         } finally {
             setAddingToCart(false);
         }
