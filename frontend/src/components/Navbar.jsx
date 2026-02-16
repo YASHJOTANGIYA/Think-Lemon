@@ -64,8 +64,13 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="container navbar-content">
                 <Link to="/" className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-                    {/* CMYK Logo */}
-                    <img src={cmykLogo} alt="CMYK Logo" style={{ width: '32px', height: '32px' }} />
+                    {/* CMYK Dots Icon */}
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', width: '24px', height: '24px' }}>
+                        <div style={{ backgroundColor: '#00adef', borderRadius: '50%' }}></div> {/* Cyan */}
+                        <div style={{ backgroundColor: '#ec008c', borderRadius: '50%' }}></div> {/* Magenta */}
+                        <div style={{ backgroundColor: '#fff200', borderRadius: '50%' }}></div> {/* Yellow */}
+                        <div style={{ backgroundColor: '#231f20', borderRadius: '50%' }}></div> {/* Black */}
+                    </div>
 
                     {/* Logo Text */}
                     <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
