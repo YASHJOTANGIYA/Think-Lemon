@@ -768,8 +768,29 @@
     }
 
     .envelope-custom-layout .product-title-large,
-    .brochure-custom-layout .product-title-large {
+    .brochure-custom-layout .product-title-large,
+    .pouch-custom-layout .product-title-large {
         font-size: 1.5rem;
+    }
+
+    .pouch-custom-layout .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .pouch-custom-layout .moq-lead-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .pouch-custom-layout .selectors-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .pouch-custom-layout .action-row {
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .action-buttons {
